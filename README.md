@@ -47,18 +47,28 @@ install.packages('Seurat', repos='http://cran.us.r-project.org')
 ### Analysis
 
 Requesting slightly higher memory as I know this dataset requires about 30Gb of RAM.  
-
 ```
 qlogin -l h_vmem=30G
 
 module load anaconda/2024.02
 
 conda activate seurat5
-
+```
+#### R Seurat analysis
+```
 R
 
 packageVersion("Seurat")
 #‘5.1.0’
+library("Seurat")
+setwd("/exports/eddie/scratch/pdewari/seurat5_analysis/DGE_unfiltered/")
 
-setwd("/exports/eddie/scratch/pdewari/seurat5_analysis/")
+#based on tutorial here https://support.parsebiosciences.com/hc/en-us/articles/360053078092-Seurat-Tutorial-65k-PBMCs
+
+mat_path <- "/exports/eddie/scratch/pdewari/seurat5_analysis/DGE_unfiltered/"
+mat <- ReadParseBio(mat_path)
+table(rownames(mat) == "")
+cell_meta <- read.csv(paste0(mat_path, "/cell_metadata.csv"), row.names = 1)
+seu_obj <- CreateSeuratObject(mat, meta.data = cell_meta)
+seu_obj
 ```
