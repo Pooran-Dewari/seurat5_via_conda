@@ -4,7 +4,7 @@ My laptop can't cope with the huge Parse datasets, had tried installing Seurat 5
 ***
 
 
-### Process
+### Installation
 
 Request a node for installation
 ```
@@ -42,4 +42,21 @@ conda activate seurat5
 R
 
 install.packages('Seurat', repos='http://cran.us.r-project.org')
+```
+
+### Analysis
+
+Requesting slightly higher memory as I know this dataset requires about 30Gb of RAM.  
+
+```
+qlogin -l h_vmem=30G
+
+module load anaconda/2024.02
+
+conda activate seurat5
+
+R
+
+packageVersion("Seurat")
+#‘5.1.0’
 ```
