@@ -47,6 +47,10 @@ packageVersion("Seurat")
 #‘5.1.0’
 
 install.packages('tidyverse', repos='http://cran.us.r-project.org')
+#if tidyverse fails because of ragg dependency, you need to run the command below outside R but in conda and try again installing tidyverse
+#https://stackoverflow.com/questions/68824450/error-configuration-failed-for-package-ragg
+
+conda install -c conda-forge pkg-config
 
 ```
 
