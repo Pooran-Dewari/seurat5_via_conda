@@ -59,4 +59,6 @@ R
 
 packageVersion("Seurat")
 #‘5.1.0’
+
+setwd("/exports/eddie/scratch/pdewari/seurat5_analysis/")
 ```
