@@ -42,6 +42,12 @@ conda activate seurat5
 R
 
 install.packages('Seurat', repos='http://cran.us.r-project.org')
+
+packageVersion("Seurat")
+#‘5.1.0’
+
+install.packages('tidyverse', repos='http://cran.us.r-project.org')
+
 ```
 
 ### Analysis
@@ -58,9 +64,10 @@ conda activate seurat5
 ```
 R
 
-packageVersion("Seurat")
-#‘5.1.0’
 library("Seurat")
+library("Matrix")
+library("tidyverse")
+
 setwd("/exports/eddie/scratch/pdewari/seurat5_analysis/DGE_unfiltered/")
 
 #based on tutorial here https://support.parsebiosciences.com/hc/en-us/articles/360053078092-Seurat-Tutorial-65k-PBMCs
